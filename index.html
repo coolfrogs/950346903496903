@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body style="display: flex; flex-direction: column; justify-items: center; align-items: center">
+
+  <div id="totalRow" style="display: grid; grid-template-columns: 25px 25px 25px 25px; background-color: white; color: grey;">
+    <div style="grid-column: 1 / 5; text-align: right;">
+      <span id="total" style="text-align: right;">0</span>
+    </div>
+  </div>
+
+  <div id="buttons" style="display: grid; grid-template-columns: 25px 25px 25px 25px;"></div>
+
+  <style>
+    #totalRow div { padding: 10px; }
+    #buttons div { padding: 10px; border: 1px black solid; opacity: 0.8; }
+    #buttons div:nth-of-type(4n) { padding: 10px; border: 1px black solid; color: black; opacity: 0.8; }
+  </style>
+
+  <script>
+    [1, 2, 3, "+", 4, 5, 6, "-", 7, 8, 9, "*", "c", 0, "=", "/"].forEach((each) => {
+      document.getElementById("buttons")
+        .appendChild(document.createElement('div')
+        .appendChild(document.createTextNode(`${each}`)).parentNode);
+    });
+
+    document.getElementById("buttons").addEventListener("mouseup", function (e) {
+      const total = document.getElementById("total");
+
+      if (e.target.innerHTML == "=" && !Boolean(total.innerHTML.match(/[\+\-*\/]$/))) {
+        total.innerHTML = parseInt(eval(`${total.innerHTML}`));
+      }
+      if (e.target.innerHTML !== "=") total.innerHTML += e.target.innerHTML;
+      if (e.target.innerHTML == "c") total.innerHTML = "0";
+    });
+  </script>
+
+</body>
+</html>
