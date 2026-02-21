@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
-<body style="display: flex; flex-direction: column; justify-items: center; align-items: center">
+<body style="display: flex; flex-direction: column; justify-items: center; align-items: center; background: transparent;">
 
-  <div id="totalRow" style="display: grid; grid-template-columns: 25px 25px 25px 25px; color: grey;">
-    <div style="grid-column: 1 / 5; text-align: right;">
+  <div id="totalRow" style="display: grid; grid-template-columns: 25px 25px 25px 25px; background: transparent; color: grey;">
+    <div style="grid-column: 1 / 5; text-align: right; background: transparent;">
       <span id="total" style="text-align: right;">0</span>
     </div>
   </div>
 
-  <div id="buttons" style="display: grid; grid-template-columns: 25px 25px 25px 25px;"></div>
+  <div id="buttons" style="display: grid; grid-template-columns: 25px 25px 25px 25px; background: transparent;"></div>
 
   <style>
-    #totalRow div { padding: 2px; }
-    #buttons div { padding: 2px; border: 1px black solid; opacity: 0.8; }
-    #buttons div:nth-of-type(4n) { padding: 10px; border: 1px black solid; color: black; opacity: 0.8; }
+    body {
+      background: transparent;
+    }
+    #totalRow div {
+      padding: 10px;
+      background: transparent;
+    }
+    #buttons div {
+      padding: 10px;
+      border: 1px black solid;
+      opacity: 0.8;
+      background: transparent;
+    }
+    #buttons div:nth-of-type(4n) {
+      padding: 10px;
+      border: 1px black solid;
+      color: black;
+      opacity: 0.8;
+      background: transparent;
+    }
   </style>
 
   <script>
@@ -35,5 +52,4 @@
   </script>
 
 </body>
-
 </html>
